@@ -1,37 +1,22 @@
 {
   "compilerOptions": {
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "target": "es6",
     "noImplicitAny": true,
-    "module": "es2015",
-    "target": "es5",
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "declaration": true,
     "moduleResolution": "node",
-    "noUnusedLocals": true,
-    "typeRoots": ["node_modules/@types"],
-    "types": ["node"],
-    "lib": ["es2015", "dom"],
-    "outDir": "dist"
+    "experimentalDecorators": true,
+    "sourceMap": true,
+    "outDir": "dist",
+    "baseUrl": ".",
+    "paths": {
+      "*": [
+        "node_modules/*",
+        "src/types/*"
+      ]
+    }
   },
-  "files": [
-    "index.ts",
-    "core.ts",
-    "src/Declarations.ts",
-    "src/Resource.ts",
-    "src/ResourceAction.ts",
-    "src/ResourceGlobalConfig.ts",
-    "src/ResourceHandler.ts",
-    "src/ResourceHelper.ts",
-    "src/ResourceModel.ts",
-    "src/ResourceParams.ts",
-    "src/ResourceCommon/ResourceCRUD.ts"
-  ],
-  "exclude": [
-    "node_modules",
-    "bundles"
-  ],
-  "angularCompilerOptions": {
-    "strictMetadataEmit": true,
-    "skipTemplateCodegen": true
-  }
+  "include": [
+    "src/**/*"
+  ]
 }

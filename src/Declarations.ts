@@ -194,6 +194,16 @@ export enum ResourceRequestMethod {
   Patch = 7
 }
 
+export let REQUEST_METHOD_MAP = {
+  [ResourceRequestMethod.Get]: 'GET',
+  [ResourceRequestMethod.Post]: 'POST',
+  [ResourceRequestMethod.Put]: 'PUT',
+  [ResourceRequestMethod.Patch]: 'PATCH',
+  [ResourceRequestMethod.Delete]: 'DELETE',
+  [ResourceRequestMethod.Options]: 'OPTIONS',
+  [ResourceRequestMethod.Head]: 'HEAD',
+};
+
 export enum ResourceQueryMappingMethod {
   Plain = 1,
   Bracket = 2,

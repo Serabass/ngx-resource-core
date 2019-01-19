@@ -21,7 +21,7 @@ export class Resource {
   private $query: any = null;
 
   constructor(protected requestHandler: ResourceHandler) {
-    (this.constructor as any).instance = this;
+    // (this.constructor as any).instance = this;
   }
 
   /**
@@ -224,7 +224,6 @@ export class Resource {
   }
 
   protected $handleSuccessResponse(options: IResourceActionInner, resp: IResourceResponse): any {
-
     let body = resp.body;
 
     const actionOptions = options.actionOptions;
@@ -445,6 +444,7 @@ export class Resource {
     if (!bodyOk) {
       throw new Error('Can not convert body');
     }
+/*
 
     if (!(body instanceof FormData)) {
       // Add root node if needed
@@ -463,6 +463,7 @@ export class Resource {
       }
 
     }
+*/
 
     options.requestOptions.body = body;
 
