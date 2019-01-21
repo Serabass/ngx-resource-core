@@ -4,26 +4,35 @@ import { IResourceMethod, ResourceRequestMethod } from './src/Declarations';
 import ResourceDefault from './src/ResourceDefault';
 
 @ResourceParams({
-  pathPrefix: 'https://enbbxv5wit8zv.x.pipedream.net/'
+  url: 'https://enbbxv5wit8zv.x.pipedream.net/',
+  pathPrefix: '',
 })
 export default class MyRequest extends ResourceDefault {
 
+  public static get instance(): MyRequest {
+    if (!this._singleton) {
+      this._singleton = new this();
+    }
+
+    return <MyRequest>this._singleton;
+  }
+
   @ResourceAction({
-    url: '/get-path',
+    path: '/get-path',
     method: ResourceRequestMethod.Get
   })
   public get: IResourceMethod<{ id: number }, { name: string }>;
 
   @ResourceAction({
-    url: '/post-path',
+    path: '/post-path/{id}',
     method: ResourceRequestMethod.Post
   })
   public post: IResourceMethod<{ id: number }, { name: string }>;
 }
 
-(<MyRequest>MyRequest.instance).get({id: 2}).then((res) => {
+MyRequest.instance.get({id: 2}).then((res) => {
   console.log(res);
-  (<MyRequest>MyRequest.instance).post({id: 2}).then((res) => {
+  MyRequest.instance.post({id: 2}).then((res) => {
     console.log(res);
   });
 });

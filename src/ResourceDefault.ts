@@ -2,7 +2,7 @@ import { Resource } from './Resource';
 import ResourceDefaultHandler from './ResourceDefaultHandler';
 
 export default class ResourceDefault extends Resource {
-  private static _singleton: ResourceDefault;
+  protected static _singleton: ResourceDefault;
 
   public static get instance() {
     if (!this._singleton) {
